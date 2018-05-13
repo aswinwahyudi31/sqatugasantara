@@ -23,10 +23,8 @@ public final class Dadu extends JFrame {
         setVisible(true);
     }
 
-    public int lempar() {
+    public void lempar() {
         hasil = randGenerator.nextInt(jumSisi) + 1;
-
-        return hasil;
     }
 
     public int getJumSisi() {
