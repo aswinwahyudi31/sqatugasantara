@@ -10,7 +10,11 @@ public class TugasantaraApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TugasantaraApplication.class, args);
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> parent of 111b929... Test
 	}
 	
 }
