@@ -1,6 +1,9 @@
 package sqa.joss.tugasantara;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Random;
 
 public final class Dadu extends JFrame {
@@ -13,15 +16,17 @@ public final class Dadu extends JFrame {
 
     public Dadu() {
         this(DEFAULT_SISI);
-        setSize(400,500);
+        setSize(260,165);
         setVisible(true);
     }
+    
 
     public Dadu(int numSides) {
         this.jumSisi = numSides;
-        setSize(400,500);
+        setSize(260, 165);
         setVisible(true);
     }
+    
 
     public int lempar() {
         hasil = randGenerator.nextInt(jumSisi) + 1;
@@ -30,7 +35,7 @@ public final class Dadu extends JFrame {
     }
 
     public int getJumSisi() {
-        return jumSisi;
+        return jumSisi;  
     }
 
     public int getHasil() {
@@ -41,4 +46,28 @@ public final class Dadu extends JFrame {
     public String toString() {
         return "Jumlah sisi dadu: " + getJumSisi() + " hasil: " + getHasil();
     }
+    
+    public int randomWarna() {
+      int randomnumber = randGenerator.nextInt(255);
+      return randomnumber;
+    }
+    
+    public Color warna(){
+        Color cobawarna = new Color(randomWarna(),randomWarna(),randomWarna());
+        return cobawarna;
+    }
+
+    public Color getWarnaSisi() {
+        Color[] warnaa = new Color[getJumSisi()];
+        for (int i = 0; i < getJumSisi(); i++) {
+            warnaa[i] = warna();
+        }
+        return warnaa[getHasil()-1];
+    }
 }
+
+
+    
+
+   	
+    	
