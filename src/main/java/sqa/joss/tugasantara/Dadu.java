@@ -1,6 +1,8 @@
 package sqa.joss.tugasantara;
 
 import javax.swing.*;
+
+import java.awt.*;
 import java.util.Random;
 
 public final class Dadu extends JFrame {
@@ -13,24 +15,24 @@ public final class Dadu extends JFrame {
 
     public Dadu() {
         this(DEFAULT_SISI);
-        setSize(400,500);
+        setSize(260,165);
         setVisible(true);
     }
+    
 
     public Dadu(int numSides) {
         this.jumSisi = numSides;
-        setSize(400,500);
+        setSize(260, 165);
         setVisible(true);
     }
+    
 
-    public int lempar() {
+    public void lempar() {
         hasil = randGenerator.nextInt(jumSisi) + 1;
-
-        return hasil;
     }
 
     public int getJumSisi() {
-        return jumSisi;
+        return jumSisi;  
     }
 
     public int getHasil() {
@@ -41,4 +43,50 @@ public final class Dadu extends JFrame {
     public String toString() {
         return "Jumlah sisi dadu: " + getJumSisi() + " hasil: " + getHasil();
     }
+    
+    public int randomWarna() {
+      int randomnumber = randGenerator.nextInt(255);
+      return randomnumber;
+    }
+    
+    public Color warna(){
+        Color cobawarna = new Color(randomWarna(),randomWarna(),randomWarna());
+        return cobawarna;
+    }
+
+    public Color getWarnaSisi() {
+        Color[] warnaa = new Color[getJumSisi()];
+        for (int i = 0; i < getJumSisi(); i++) {
+            warnaa[i] = warna();
+        }
+        return warnaa[getHasil()-1];
+    }
+
+    public void paint(Graphics g) {
+
+        // Memanggil metoda paint dari superclass
+        super.paint(g);
+
+        // Mengatur warna
+
+        g.drawString(String.valueOf(warna()),57,100);
+
+        g.setColor(Color.YELLOW);
+        g.drawRect(20, 40, 220, 50);
+
+        g.setColor(getWarnaSisi());
+        g.fillRect(20, 100, 220, 50);
+
+        g.setColor(Color.RED);
+        g.drawString(toString(),57,60);
+
+        g.setColor(Color.WHITE);
+        g.drawString("Warna Sisi Dadu",80,125);
+    }
 }
+
+
+    
+
+   	
+    	
