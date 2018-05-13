@@ -2,8 +2,7 @@ package sqa.joss.tugasantara;
 
 import javax.swing.*;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.Random;
 
 public final class Dadu extends JFrame {
