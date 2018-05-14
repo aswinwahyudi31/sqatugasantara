@@ -2,8 +2,7 @@ package sqa.joss.tugasantara;
 
 import javax.swing.*;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.Random;
 
 public final class Dadu extends JFrame {
@@ -28,10 +27,8 @@ public final class Dadu extends JFrame {
     }
     
 
-    public int lempar() {
+    public void lempar() {
         hasil = randGenerator.nextInt(jumSisi) + 1;
-
-        return hasil;
     }
 
     public int getJumSisi() {
@@ -63,6 +60,28 @@ public final class Dadu extends JFrame {
             warnaa[i] = warna();
         }
         return warnaa[getHasil()-1];
+    }
+
+    public void paint(Graphics g) {
+
+        // Memanggil metoda paint dari superclass
+        super.paint(g);
+
+        // Mengatur warna
+
+        g.drawString(String.valueOf(warna()),57,100);
+
+        g.setColor(Color.YELLOW);
+        g.drawRect(20, 40, 220, 50);
+
+        g.setColor(getWarnaSisi());
+        g.fillRect(20, 100, 220, 50);
+
+        g.setColor(Color.RED);
+        g.drawString(toString(),57,60);
+
+        g.setColor(Color.WHITE);
+        g.drawString("Warna Sisi Dadu",80,125);
     }
 }
 
