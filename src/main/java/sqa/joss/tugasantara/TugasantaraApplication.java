@@ -9,7 +9,7 @@ import javax.swing.*;
 public class TugasantaraApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TugasantaraApplication.class, args);
+		//SpringApplication.run(TugasantaraApplication.class, args);
 		Dadu dadu = new Dadu(2);
 		dadu.lempar();
 
